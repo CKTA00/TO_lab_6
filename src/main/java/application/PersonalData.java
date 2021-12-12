@@ -34,6 +34,11 @@ public class PersonalData{
         return name;
     }
 
+    public String getName()
+    {
+        return name.getString();
+    }
+
     @Override
     public String toString() {
         return  name.getString() +

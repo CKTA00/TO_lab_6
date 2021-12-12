@@ -2,8 +2,13 @@ package application;
 
 import myutil.IStringFlyweight;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class Database {
     private List<PersonalData> data;
@@ -46,5 +51,13 @@ public class Database {
             result += p.toString() + "\n";
         }
         return result;
+    }
+
+    public String getJsonOfAll()
+    {
+        Gson gson = new Gson();
+
+        String str = gson.toJson(data);
+        return str;
     }
 }

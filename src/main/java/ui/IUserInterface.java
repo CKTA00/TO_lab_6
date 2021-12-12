@@ -8,10 +8,10 @@ public interface IUserInterface {
 
     public void println(String msg);
 
-    public int inputInt() throws IOException;
+    public int inputInt() throws Exception;
 
-    public double inputDouble() throws IOException;
+    public double inputDouble() throws Exception;
 
-    public String inputString() throws IOException;
+    public String inputString() throws Exception;
 
 }

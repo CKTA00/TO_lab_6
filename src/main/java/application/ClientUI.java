@@ -58,7 +58,7 @@ public class ClientUI {
         String r = null;
         try {
             r = ui.inputString();
-        } catch (IOException e) {
+        } catch (Exception e) {
             r = "none";
         }
 

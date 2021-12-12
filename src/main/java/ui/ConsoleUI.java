@@ -23,21 +23,21 @@ public class ConsoleUI implements IUserInterface{
     }
 
     @Override
-    public int inputInt() throws IOException {
+    public int inputInt() throws Exception {
         String in = reader.readLine();
         int r = Integer.parseInt(in);
         return r;
     }
 
     @Override
-    public double inputDouble() throws IOException {
+    public double inputDouble() throws Exception {
         String in = reader.readLine();
         double r = Double.parseDouble(in);
-        return 0;
+        return r;
     }
 
     @Override
-    public String inputString() throws IOException {
+    public String inputString() throws Exception {
         String r = reader.readLine();
         return r;
     }

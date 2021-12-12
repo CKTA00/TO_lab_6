@@ -29,9 +29,10 @@ public class Add extends Command {
             surname = ui.inputString();
             ui.println("Podaj szerokość geograficzną:");
             latitude = ui.inputDouble();
+            ui.println(""+latitude);
             ui.println("Podaj wysokość geograficzną:");
             longitude = ui.inputDouble();
-        } catch (IOException e) {
+        } catch (Exception e) {
             ui.println("Nieprawidłowy input");
             //TODO: Dodaj do IUserInterface funkcje printError, która doda "(X) " na początku.
             return;

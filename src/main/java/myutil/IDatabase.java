@@ -7,5 +7,5 @@ import java.util.List;
 public interface IDatabase {
     public void addPerson(String name, String surname, double latitude, double longitude);
     public String showAll();
-    //TODO: Add file handling
+    public String getJsonOfAll();
 }
