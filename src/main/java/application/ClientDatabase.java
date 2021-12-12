@@ -2,6 +2,8 @@ package application;
 
 import myutil.IDatabase;
 
+import java.util.List;
+
 public class ClientDatabase implements IDatabase {
 
     Database db;
@@ -12,13 +14,18 @@ public class ClientDatabase implements IDatabase {
     }
 
     @Override
-    public void addPerson(String name, String surname, double altitude, double longitude) {
+    public void addPerson(String name, String surname, double latitude, double longitude) {
         db.addPerson(
                 capitalize(name),
                 capitalize(surname),
-                altitude,
+                latitude,
                 longitude
         );
+    }
+
+    @Override
+    public String showAll() {
+        return db.getAllPeople();
     }
 
     private String capitalize(String str)

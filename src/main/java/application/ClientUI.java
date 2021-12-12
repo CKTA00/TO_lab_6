@@ -21,15 +21,17 @@ public class ClientUI {
         return db;
     }
 
-    public ClientUI(IUserInterface ui)
+    public ClientUI(IUserInterface ui, ClientDatabase db)
     {
         this.ui = ui;
+        this.db = db;
         commandChain = new Exit(null, "exit");
         commandChain = new Save(commandChain, "save");
         commandChain = new Readd(commandChain, "readd");
         commandChain = new Read(commandChain, "read");
+        commandChain = new Show(commandChain, "show");
+        commandChain = new Find(commandChain, "find");
         commandChain = new Add(commandChain, "add");
-        db = new ClientDatabase();
     }
 
     public void uiLoop()
@@ -44,6 +46,8 @@ public class ClientUI {
     public String menu() {
         ui.println("Wpisz jedną z poniższych komend:");
         ui.println("\tadd - Dodaj nową osobę");
+        ui.println("\tfind - Znajdź osoby po imieniu");
+        ui.println("\tshow - Pokaż całą bazę danych");
         ui.println("----------------------------------------------------------");
         ui.println("\tread - Wczytaj plik z danymi i zastąp istniejącą bazę");
         ui.println("\treadd - Wczytaj plik z danymi i dodaj do istniejącej bazy");

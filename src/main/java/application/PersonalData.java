@@ -8,13 +8,13 @@ public class PersonalData{
     String surname;
 
     // Location of the capture:
-    double altitude;
+    double latitude;
     double longitude;
 
-    public PersonalData(IStringFlyweight name, String surname, double altitude, double longitude) {
+    public PersonalData(IStringFlyweight name, String surname, double latitude, double longitude) {
         this.name = name;
         this.surname = surname;
-        this.altitude = altitude;
+        this.latitude = latitude;
         this.longitude = longitude;
     }
 
@@ -22,8 +22,8 @@ public class PersonalData{
         return surname;
     }
 
-    public double getAltitude() {
-        return altitude;
+    public double getLatitude() {
+        return latitude;
     }
 
     public double getLongitude() {
@@ -32,5 +32,13 @@ public class PersonalData{
 
     public IStringFlyweight getNameFlyweight() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return  name.getString() +
+                " " + surname +
+                " latitude=" + latitude +
+                " longitude=" + longitude ;
     }
 }

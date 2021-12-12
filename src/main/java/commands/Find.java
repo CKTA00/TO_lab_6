@@ -2,8 +2,8 @@ package commands;
 
 import application.ClientUI;
 
-public class Exit extends Command {
-    public Exit(Command nextCommand, String command) {
+public class Find extends Command {
+    public Find(Command nextCommand, String command) {
         super(nextCommand, command);
     }
 

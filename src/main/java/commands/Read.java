@@ -9,6 +9,6 @@ public class Read extends Command {
 
     @Override
     public void run(ClientUI ctx) {
-
+        ctx.getUi().println("Not implemented");
     }
 }

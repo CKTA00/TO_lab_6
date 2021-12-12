@@ -19,10 +19,12 @@ public abstract class Command {
     }
 
     public void tryRun(String command, ClientUI ctx){
-        if(command==this.command)
+        if(this.command.equals(command))
             run(ctx);
-        else
+        else if(nextCommand!=null)
             nextCommand.tryRun(command,ctx);
+        else
+            ctx.getUi().println("Nie ma takiej komendy.");//TODO: (X)
     }
 
     public abstract void run(ClientUI ctx);

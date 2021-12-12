@@ -23,6 +23,7 @@ public class Database {
                 altitude,
                 longitude
         );
+        data.add(person);
     }
 
     IStringFlyweight getOrCreateName(String name)
@@ -37,5 +38,13 @@ public class Database {
         IStringFlyweight newNameObj = new NameFlyweight(name);
         commonNames.add(newNameObj);
         return newNameObj;
+    }
+
+    public String getAllPeople() {
+        String result = "Database:\n";
+        for (var p: data) {
+            result += p.toString() + "\n";
+        }
+        return result;
     }
 }
