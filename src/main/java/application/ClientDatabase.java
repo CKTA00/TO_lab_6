@@ -33,6 +33,11 @@ public class ClientDatabase implements IDatabase {
         return db.getJsonOfAll();
     }
 
+    public void readJson(String json,boolean append)
+    {
+        db.readJson(json,append);
+    }
+
     private String capitalize(String str)
     {
         return str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();

@@ -11,6 +11,7 @@ public class PersonalData{
     double latitude;
     double longitude;
 
+
     public PersonalData(IStringFlyweight name, String surname, double latitude, double longitude) {
         this.name = name;
         this.surname = surname;
@@ -32,6 +33,22 @@ public class PersonalData{
 
     public IStringFlyweight getNameFlyweight() {
         return name;
+    }
+
+    public void setName(IStringFlyweight name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public String getName()

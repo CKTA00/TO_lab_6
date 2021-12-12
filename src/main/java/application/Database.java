@@ -1,14 +1,16 @@
 package application;
 
+import com.google.gson.reflect.TypeToken;
+//import instance_creators.NameFlyweightInstanceCreator;
+//import instance_creators.PersonalDataInstanceCreator;
 import myutil.IStringFlyweight;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import myutil.TemporaryPersonalData;
 
 public class Database {
     private List<PersonalData> data;
@@ -59,5 +61,24 @@ public class Database {
 
         String str = gson.toJson(data);
         return str;
+    }
+
+    public void readJson(String json, boolean append)
+    {
+//        GsonBuilder gsonBuilder = new GsonBuilder();
+//        gsonBuilder.registerTypeAdapter(PersonalData.class, new PersonalDataInstanceCreator());
+//        gsonBuilder.registerTypeAdapter(IStringFlyweight.class, new NameFlyweightInstanceCreator(this));
+//        Gson gson = gsonBuilder.create();
+        Gson gson = new Gson();
+
+        List<TemporaryPersonalData> list = gson.fromJson(json, new TypeToken<List<TemporaryPersonalData>>(){}.getType());
+        if(!append){
+            data.clear();
+            commonNames.clear();
+        }
+
+        for (var p: list) {
+            addPerson(p.name.getString(),p.surname,p.latitude,p.longitude);
+        }
     }
 }

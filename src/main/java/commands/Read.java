@@ -1,6 +1,11 @@
 package commands;
 
 import application.ClientUI;
+import com.google.gson.Gson;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Read extends Command {
     public Read(Command nextCommand, String command) {
@@ -9,6 +14,23 @@ public class Read extends Command {
 
     @Override
     public void run(ClientUI ctx) {
-        ctx.getUi().println("Not implemented");
+        String str ="";
+        String fileName = System.getProperty("user.dir") + "/save/migration_database.txt";
+        try{
+            FileInputStream inputStream = new FileInputStream(fileName);
+            int ch;
+
+            while ((ch = inputStream.read()) != -1)
+                str += (char)ch;
+
+            inputStream.close();
+
+        }
+        catch (IOException e)
+        {
+            System.out.println("Fatal file error");
+            e.printStackTrace();
+        }
+        ctx.getDb().readJson(str,false);
     }
 }
