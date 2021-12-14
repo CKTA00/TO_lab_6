@@ -2,15 +2,13 @@ package application;
 
 import myutil.IDatabase;
 
-import java.util.List;
-
 public class ClientDatabase implements IDatabase {
 
-    Database db;
+    IDatabase db;
 
-    public ClientDatabase()
+    public ClientDatabase(IDatabase db)
     {
-        db = new Database();
+        this.db = db;
     }
 
     @Override
@@ -25,7 +23,7 @@ public class ClientDatabase implements IDatabase {
 
     @Override
     public String showAll() {
-        return db.getAllPeople();
+        return db.showAll();
     }
 
     @Override

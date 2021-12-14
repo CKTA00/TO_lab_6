@@ -21,21 +21,67 @@ class ConsoleUI implements IUserInterface{
 
 class Command<Abstract>{
     +next()
-    +tryRun()
-    +run()
+    +tryRun(String command, ClientMenu ctx)
+    #run(ClientMenu ctx)
+}
+note top:Only run() is abstract,\nnext() and tryRun() are\nimplemented and final.
+
+interface IDatabase{
+    +addPerson(String name, String surname, double latitude, double longitude): void
+    +showAll(): String
+    +getJsonOfAll(): String
+    +readJson(String json,boolean append): void
 }
 
-'class Add extends Command
-'class Read extends Command
-'class Readd extends Command
-'class Save extends Command
-'class Show extends Command
+class Database implements IDatabase
+{
+    -data: List<PersonalData>
+    -commonNames: List<IStringFlyweight>
+    -getOrCreateName(String name): IStringFlyweight
+}
 
-note left: only run() is abstract, next() and\ntryRun() are implemented and final
+class ClientDatabase implements IDatabase{
+    -db: IDatabase
+    -capitalize(String str): String
+}
 
+class PersonalData{
+    -name: IStringFlyweight
+    -surname: String
+    -latitude: double
+    -longitude: double
+    + [setter and getters for all values]()
+}
 
+interface IStringFlyweight{
+    +getString(): String
+}
+
+class NameFlyweight implements IStringFlyweight{
+    -name: String
+}
+
+class TemporaryPersonalData{
+
+}
+note bottom: Used only for\njson to object\nconversion
+
+class Add extends Command
+class Read extends Command
+class Readd extends Command
+class Save extends Command
+class Show extends Command
 
 ClientMenu *-- "1 " IUserInterface
-ClientMenu *-- "n" Command
+ClientMenu *--> "n" Command
+ClientMenu *-- "1" IDatabase
 
+Command --> ClientDatabase
+ClientDatabase --> Database
+
+Database o-"0..n" PersonalData
+Database o-"0..n   " IStringFlyweight
+PersonalData *.."1" IStringFlyweight
+Database "cretaes" ...> NameFlyweight
+TemporaryPersonalData . Database
 @enduml
