@@ -1,6 +1,6 @@
 package commands;
 
-import application.ClientUI;
+import application.ClientMenu;
 
 public class Exit extends Command {
     public Exit(Command nextCommand, String command) {
@@ -8,7 +8,8 @@ public class Exit extends Command {
     }
 
     @Override
-    public void run(ClientUI ctx) {
+    public void run(ClientMenu ctx) {
         ctx.getUi().println("Not implemented");
     }
+
 }

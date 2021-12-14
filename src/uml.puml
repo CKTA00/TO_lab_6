@@ -1,0 +1,41 @@
+@startuml
+
+class ClientMenu{
+    +getUi(): IUserInterface
+    +getDb(): IDatabase
+    +uiLoop(): void
+    -menu(): String
+}
+
+interface IUserInterface{
+    +print(String msg): void
+    +println(String msg): void
+    +inputInt(): int
+    +inputDouble(): double
+    +inputString(): String
+}
+
+class ConsoleUI implements IUserInterface{
+    -BufferedReader reader;
+}
+
+class Command<Abstract>{
+    +next()
+    +tryRun()
+    +run()
+}
+
+'class Add extends Command
+'class Read extends Command
+'class Readd extends Command
+'class Save extends Command
+'class Show extends Command
+
+note left: only run() is abstract, next() and\ntryRun() are implemented and final
+
+
+
+ClientMenu *-- "1 " IUserInterface
+ClientMenu *-- "n" Command
+
+@enduml

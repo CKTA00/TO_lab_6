@@ -1,6 +1,6 @@
 package commands;
 
-import application.ClientUI;
+import application.ClientMenu;
 
 public abstract class Command {
 
@@ -13,12 +13,12 @@ public abstract class Command {
         this.command = command;
     }
 
-    public Command next()
+    final public Command next()
     {
         return nextCommand;
     }
 
-    public void tryRun(String command, ClientUI ctx){
+    final public void tryRun(String command, ClientMenu ctx){
         if(this.command.equals(command))
             run(ctx);
         else if(nextCommand!=null)
@@ -27,5 +27,5 @@ public abstract class Command {
             ctx.getUi().println("Nie ma takiej komendy.");//TODO: (X)
     }
 
-    public abstract void run(ClientUI ctx);
+    protected abstract void run(ClientMenu ctx);
 }

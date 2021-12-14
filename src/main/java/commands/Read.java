@@ -1,10 +1,8 @@
 package commands;
 
-import application.ClientUI;
-import com.google.gson.Gson;
+import application.ClientMenu;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class Read extends Command {
@@ -13,7 +11,7 @@ public class Read extends Command {
     }
 
     @Override
-    public void run(ClientUI ctx) {
+    public void run(ClientMenu ctx) {
         String str ="";
         String fileName = System.getProperty("user.dir") + "/save/migration_database.txt";
         try{

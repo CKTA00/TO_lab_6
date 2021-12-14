@@ -1,6 +1,6 @@
 package commands;
 
-import application.ClientUI;
+import application.ClientMenu;
 
 public class Show extends Command {
     public Show(Command nextCommand, String command) {
@@ -8,7 +8,7 @@ public class Show extends Command {
     }
 
     @Override
-    public void run(ClientUI ctx) {
+    public void run(ClientMenu ctx) {
         ctx.getUi().print(ctx.getDb().showAll());
     }
 }

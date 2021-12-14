@@ -1,11 +1,8 @@
 package commands;
 
-import application.ClientUI;
-import application.Database;
+import application.ClientMenu;
 import myutil.IDatabase;
 import ui.IUserInterface;
-
-import java.io.IOException;
 
 public class Add extends Command {
     public Add(Command nextCommand, String command) {
@@ -13,7 +10,7 @@ public class Add extends Command {
     }
 
     @Override
-    public void run(ClientUI ctx) {
+    public void run(ClientMenu ctx) {
         IUserInterface ui = ctx.getUi();
         IDatabase db = ctx.getDb();
 

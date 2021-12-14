@@ -7,7 +7,7 @@ import ui.IUserInterface;
 import java.io.IOException;
 
 
-public class ClientUI {
+public class ClientMenu {
 
     IUserInterface ui;
     Command commandChain;
@@ -21,7 +21,7 @@ public class ClientUI {
         return db;
     }
 
-    public ClientUI(IUserInterface ui, ClientDatabase db)
+    public ClientMenu(IUserInterface ui, ClientDatabase db)
     {
         this.ui = ui;
         this.db = db;
@@ -43,7 +43,7 @@ public class ClientUI {
         }
     }
 
-    public String menu() {
+    private String menu() {
         ui.println("Wpisz jedną z poniższych komend:");
         ui.println("\tadd - Dodaj nową osobę");
         ui.println("\tfind - Znajdź osoby po imieniu");

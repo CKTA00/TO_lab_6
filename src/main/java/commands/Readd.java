@@ -1,6 +1,6 @@
 package commands;
 
-import application.ClientUI;
+import application.ClientMenu;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,7 +11,7 @@ public class Readd extends Command {
     }
 
     @Override
-    public void run(ClientUI ctx) {
+    public void run(ClientMenu ctx) {
         String str ="";
         String fileName = System.getProperty("user.dir") + "/save/migration_database.txt";
         try{
