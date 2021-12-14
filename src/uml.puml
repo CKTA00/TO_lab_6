@@ -81,7 +81,7 @@ ClientDatabase --> Database
 
 Database o-"0..n" PersonalData
 Database o-"0..n   " IStringFlyweight
-PersonalData *.."1" IStringFlyweight
+PersonalData .."share" IStringFlyweight
 Database "cretaes" ...> NameFlyweight
 TemporaryPersonalData . Database
 @enduml
